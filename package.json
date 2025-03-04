@@ -1,0 +1,31 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@cucumber/cucumber": "^8.3.0",
+    "@faker-js/faker": "^9.5.1",
+    "@types/chai": "^5.0.1",
+    "@types/cucumber": "^7.0.3",
+    "@types/node": "^14.18.63",
+    "chai": "^5.2.0",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^4.5.4"
+  },
+  "scripts": {
+    "setup": "docker compose up -d && sleep 2 && NODE_OPTIONS=\"-r tsconfig-paths/register\" npx typeorm-ts-node-commonjs migration:run -d src/Infra/Database/data-source.ts",
+    "test": "NODE_ENV=test cucumber-js --profile default",
+    "test:critical": "NODE_ENV=test cucumber-js --profile critical",
+    "build-cli": "tsc src/Infra/CLI/fleet-cli.ts --outDir dist",
+    "cli": "ts-node -r tsconfig-paths/register src/Infra/CLI/fleet-cli.ts"
+  },
+  "dependencies": {
+    "commander": "^13.1.0",
+    "lodash": "^4.17.21",
+    "pg": "^8.13.3",
+    "reflect-metadata": "^0.2.2",
+    "typeorm": "^0.3.20"
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+}

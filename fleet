@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Find the project directory
+PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Ensure a command is provided
+if [ $# -lt 1 ]; then
+  echo "❌ Usage: ./fleet <command> [args]"
+  exit 1
+fi
+
+# Run the CLI using ts-node
+yarn ts-node -r tsconfig-paths/register "$PROJECT_DIR/src/Infra/CLI/fleet-cli.ts" "$@"

@@ -1,0 +1,14 @@
+{
+  "default": {
+    "requireModule": ["ts-node/register", "tsconfig-paths/register"],
+    "require": ["test/features/**/*.ts"],
+    "paths": ["test/features"]
+  },
+  "critical": {
+    "requireModule": ["ts-node/register", "tsconfig-paths/register"],
+    "require": ["test/features/**/*.ts"],
+    "paths": ["test/features"],
+    "tags": "@critical",
+    "worldParameters": { "TEST_MODE": "critical" }
+  }
+}
