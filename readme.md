@@ -43,3 +43,7 @@ About the code quality and the CI/CD, we should/can use:
 The CI/CD pipeline should have a pre deploy phase where it run tests, code quality insurance tools, build.
 Then a deploy phase, where it migrates the DB schema and then deploy the new code.
 And finally a post-deploy phases with actions such as updating an API documentation for instance.
+
+# Algo exercise
+
+`node fizzbuzz.js`
